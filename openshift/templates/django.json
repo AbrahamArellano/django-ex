@@ -227,7 +227,9 @@
                   }
                 }
               }
-            ]
+            ],
+            "serviceAccount": "${SERVICE_ACCOUNT_NAME}",
+            "serviceAccountName": "${SERVICE_ACCOUNT_NAME}"            
           }
         }
       }
@@ -268,6 +270,13 @@
       "required": true,
       "description": "The URL of the repository with your application source code.",
       "value": "https://github.com/sclorg/django-ex.git"
+    },
+    {
+      "name": "SERVICE_ACCOUNT_NAME",
+      "displayName": "Name of the service account",
+      "required": true,
+      "description": "Name of the service account with limited roles.",
+      "value": "certificatebot"
     },
     {
       "name": "SOURCE_REPOSITORY_REF",
