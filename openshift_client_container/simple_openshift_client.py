@@ -6,5 +6,7 @@ openshift.config.load_incluster_config()
 api_client = openshift.client.ApiClient()
 oapi_client = openshift.client.OapiApi(api_client)
 
-namespace = "rest-project"
-route_list = oapi_client.list_namespaced_route(namespace)
+project_namespace = input("Provide Openshift namespace: ")
+
+route_list = oapi_client.list_namespaced_route(project_namespace)
+print(route_list)
