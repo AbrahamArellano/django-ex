@@ -1,3 +1,4 @@
+import os
 import openshift.client
 import openshift.config
 
