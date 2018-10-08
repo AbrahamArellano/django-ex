@@ -257,7 +257,7 @@
                   {
                     "name": "certificate-watchdog",
                     "image": "172.30.1.1:5000/watchdog/${NAME}:latest",
-                    "command": ["/bin/bash", "-c", "scripts/watchdog.sh"]
+                    "command": ["/bin/bash", "-c", "openshift/scripts/watchdog.sh"]
                   }
                 ],
                 "restartPolicy": "OnFailure"
