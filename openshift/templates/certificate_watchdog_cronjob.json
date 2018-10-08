@@ -260,7 +260,9 @@
                     "command": ["/bin/bash", "-c", "python -m pip install openshift && python openshift_client_container/dynamic_openshift_client.py"]
                   }
                 ],
-                "restartPolicy": "OnFailure"
+                "restartPolicy": "OnFailure",
+                "serviceAccount": "${SERVICE_ACCOUNT_NAME}",
+                "serviceAccountName": "${SERVICE_ACCOUNT_NAME}"                      
               }
             }
           }
