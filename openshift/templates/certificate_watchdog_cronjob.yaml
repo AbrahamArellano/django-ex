@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: certificate-watchdog
 spec:
-  schedule: 0 */1 * * ?
+  schedule: "*/1 * * * *"
   jobTemplate:
     metadata:
       labels:
