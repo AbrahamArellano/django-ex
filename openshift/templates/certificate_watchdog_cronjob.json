@@ -101,7 +101,7 @@
           "sourceStrategy": {
             "from": {
               "kind": "ImageStreamTag",
-              "namespace": "${NAMESPACE}",
+              "namespace": "${NAMESPACE_OPENSHIFT}",
               "name": "python:${PYTHON_VERSION}"
             },
             "env": [
@@ -282,9 +282,16 @@
       "name": "NAMESPACE",
       "displayName": "Namespace",
       "required": true,
-      "description": "The OpenShift Namespace where the ImageStream resides.",
+      "description": "The namespace where the ImageStream resides.",
       "value": "openshift"
     },
+    {
+      "name": "NAMESPACE_OPENSHIFT",
+      "displayName": "Namespace Openshift",
+      "required": true,
+      "description": "The OpenShift namespace where the ImageStream resides.",
+      "value": "openshift"
+    },    
     {
       "name": "DOCKER_REGISTRY_SERVER_PORT",
       "displayName": "Docker Registry Server Port",
