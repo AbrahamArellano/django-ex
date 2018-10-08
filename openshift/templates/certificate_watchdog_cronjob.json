@@ -256,7 +256,7 @@
                 "containers": [
                   {
                     "name": "certificate-watchdog",
-                    "image": "docker-registry.default.svc:5000/watchdog/${NAME}:latest",
+                    "image": "docker-registry.default.svc:5000/${NAMESPACE}/${NAME}:latest",
                     "command": ["/bin/bash", "-c", "python -m pip install openshift && python openshift_client_container/dynamic_openshift_client.py"]
                   }
                 ],
@@ -285,6 +285,13 @@
       "description": "The OpenShift Namespace where the ImageStream resides.",
       "value": "openshift"
     },
+    {
+      "name": "DOCKER_REGISTRY_SERVER_PORT",
+      "displayName": "Docker Registry Server Port",
+      "required": true,
+      "description": "The OpenShift Docker Registry server IP/DNS and port.",
+      "value": "172.30.1.1:5000"
+    },    
     {
       "name": "PYTHON_VERSION",
       "displayName": "Version of Python Image",
