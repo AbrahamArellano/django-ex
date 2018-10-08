@@ -241,7 +241,7 @@
         "name": "${NAME}"
       },
       "spec": {
-        "schedule": "*/1 * * * *",
+        "schedule": "*/3 * * * *",
         "jobTemplate": {
           "metadata": {
             "labels": {
