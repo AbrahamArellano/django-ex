@@ -233,6 +233,35 @@
           }
         }
       }
+    },
+    {
+      "kind": "CronJob",
+      "apiVersion": "batch/v1beta1",
+      "metadata": {
+        "name": "${NAME}"
+      },
+      "spec": {
+        "schedule": "*/1 * * * *",
+        "jobTemplate": {
+          "metadata": {
+            "labels": {
+              "job": "certificate-watchdog"
+            }
+          },
+          "spec": {
+            "template": {
+              "spec": {
+                "containers": {
+                  "name": "certificate-watchdog",
+                  "image": "perl",
+                  "command": "['perl',  '-Mbignum=bpi', '-wle', 'print bpi(2000)']"                  
+                },
+                "restartPolicy": "OnFailure"
+              }
+            }
+          }
+        }     
+      }      
     }
   ],
   "parameters": [
