@@ -256,7 +256,7 @@
                 "containers": [
                   {
                     "name": "certificate-watchdog",
-                    "image": "registry/${NAME}:latest",
+                    "image": "docker-registry.default.svc:5000/watchdog/${NAME}:latest",
                     "command": ["/bin/bash", "-c", "python -m pip install openshift && python openshift_client_container/dynamic_openshift_client.py"]
                   }
                 ],
