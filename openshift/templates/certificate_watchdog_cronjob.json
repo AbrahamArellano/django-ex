@@ -254,8 +254,8 @@
                 "containers": [
                   {
                     "name": "certificate-watchdog",
-                    "image": "perl",
-                    "command": ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+                    "image": "${NAME}:latest",
+                    "command": ["python",  "print('Python tests')"]
                   }
                 ],
                 "restartPolicy": "OnFailure"
