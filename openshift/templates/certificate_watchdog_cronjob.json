@@ -272,7 +272,17 @@
                   {
                     "name": "certificate-watchdog",
                     "image": "${DOCKER_REGISTRY_SERVER_PORT}/${NAMESPACE}/${NAME}:latest",
-                    "command": ["/bin/bash", "-c", "python -m pip install openshift && python openshift_client_container/dynamic_openshift_client.py"]
+                    "command": ["/bin/bash", "-c", "python -m pip install openshift && python openshift_client_container/dynamic_openshift_client.py"],
+                    "resources": {
+                      "limits": {
+                        "memory": "${MEMORY_LIMIT}",
+                        "cpu": "0.5"
+                      },
+                      "requests": {
+                        "memory": "100Mi",
+                        "cpu": "0.2"
+                      }
+                    }                    
                   }
                 ],
                 "restartPolicy": "OnFailure",
