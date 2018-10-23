@@ -88,23 +88,23 @@
         }
       },
       "spec": {
+        "resources": {
+          "limits": {
+            "memory": "${MEMORY_LIMIT}",
+            "cpu": "0.5"
+          },
+          "requests": {
+            "memory": "100Mi",
+            "cpu": "0.2"
+          }
+        },
         "source": {
           "type": "Git",
           "git": {
             "uri": "${SOURCE_REPOSITORY_URL}",
             "ref": "${SOURCE_REPOSITORY_REF}"
           },
-          "contextDir": "${CONTEXT_DIR}",
-          "resources": {
-            "limits": {
-              "memory": "${MEMORY_LIMIT}",
-              "cpu": "0.5"
-            },
-            "requests": {
-              "memory": "100Mi",
-              "cpu": "0.2"
-            }
-          }          
+          "contextDir": "${CONTEXT_DIR}"          
         },
         "strategy": {
           "type": "Source",
