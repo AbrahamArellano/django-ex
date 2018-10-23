@@ -31,6 +31,7 @@
         "django-secret-key" : "${DJANGO_SECRET_KEY}"
       }
     },
+
     {
       "kind": "ImageStream",
       "apiVersion": "v1",
@@ -38,6 +39,76 @@
         "name": "${NAME}",
         "annotations": {
           "description": "Keeps track of changes in the application image"
+        }
+      }
+    },
+    {
+      "kind": "BuildConfig",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "${NAME}",
+        "annotations": {
+          "description": "Defines how to build the application",
+          "template.alpha.openshift.io/wait-for-ready": "true"
+        }
+      },
+      "spec": {
+        "resources": {
+          "limits": {
+            "memory": "${MEMORY_LIMIT}",
+            "cpu": "0.5"
+          },
+          "requests": {
+            "memory": "100Mi",
+            "cpu": "0.2"
+          }
+        },
+        "source": {
+          "type": "Git",
+          "git": {
+            "uri": "${SOURCE_REPOSITORY_URL}",
+            "ref": "${SOURCE_REPOSITORY_REF}"
+          },
+          "contextDir": "${CONTEXT_DIR}"          
+        },
+        "strategy": {
+          "type": "Source",
+          "sourceStrategy": {
+            "from": {
+              "kind": "ImageStreamTag",
+              "namespace": "${NAMESPACE_OPENSHIFT}",
+              "name": "python:${PYTHON_VERSION}"
+            },
+            "env": [
+              {
+                  "name": "PIP_INDEX_URL",
+                  "value": "${PIP_INDEX_URL}"
+              }
+            ]
+          }
+        },
+        "output": {
+          "to": {
+            "kind": "ImageStreamTag",
+            "name": "${NAME}:latest"
+          }
+        },
+        "triggers": [
+          {
+            "type": "ImageChange"
+          },
+          {
+            "type": "ConfigChange"
+          },
+          {
+            "type": "GitHub",
+            "github": {
+              "secret": "${GITHUB_WEBHOOK_SECRET}"
+            }
+          }
+        ],
+        "postCommit": {
+          "script": "./manage.py test"
         }
       }
     },
