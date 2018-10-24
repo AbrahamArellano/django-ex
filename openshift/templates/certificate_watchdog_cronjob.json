@@ -22,17 +22,6 @@
   "message": "The following service(s) have been created in your project: ${NAME}.\n\nFor more information about using this template, including OpenShift considerations, see https://github.com/sclorg/django-ex/blob/master/README.md.",
   "objects": [
     {
-      "kind": "Secret",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "${NAME}"
-      },
-      "stringData" : {
-        "django-secret-key" : "${DJANGO_SECRET_KEY}"
-      }
-    },
-
-    {
       "kind": "ImageStream",
       "apiVersion": "v1",
       "metadata": {
