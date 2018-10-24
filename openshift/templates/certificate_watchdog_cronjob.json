@@ -2,22 +2,22 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "django-example",
+    "name": "certificatebot",
     "annotations": {
-      "openshift.io/display-name": "Django",
-      "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/django-ex/blob/master/README.md.",
+      "openshift.io/display-name": "CertBot",
+      "description": "An example of Certificate Bot for Openshift",
       "tags": "quickstart,python,django",
       "iconClass": "icon-python",
-      "openshift.io/long-description": "This template defines resources needed to develop a Django based application, including a build configuration and application deployment configuration.  It does not include a database.",
+      "openshift.io/long-description": "This template defines resources needed to develop a Certificate Bot for Openshift.",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "openshift.io/documentation-url": "https://github.com/sclorg/django-ex",
+      "openshift.io/documentation-url": "https://github.com/AbrahamArellano/django-ex",
       "openshift.io/support-url": "https://access.redhat.com",
       "template.openshift.io/bindable": "false"
     }
   },
   "labels": {
-      "template": "django-example",
-      "app": "django-example"
+      "template": "certificatebot",
+      "app": "certificatebot"
   },
   "message": "The following service(s) have been created in your project: ${NAME}.\n\nFor more information about using this template, including OpenShift considerations, see https://github.com/sclorg/django-ex/blob/master/README.md.",
   "objects": [
@@ -162,7 +162,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "django-example"
+      "value": "certificatebot"
     },
     {
       "name": "NAMESPACE",
@@ -225,7 +225,7 @@
       "displayName": "Git Repository URL",
       "required": true,
       "description": "The URL of the repository with your application source code.",
-      "value": "https://github.com/sclorg/django-ex.git"
+      "value": "https://github.com/AbrahamArellano/django-ex.git"
     },
     {
       "name": "SERVICE_ACCOUNT_NAME",
