@@ -106,10 +106,7 @@
               "secret": "${GITHUB_WEBHOOK_SECRET}"
             }
           }
-        ],
-        "postCommit": {
-          "script": "./manage.py test"
-        }
+        ]
       }
     },
     {
