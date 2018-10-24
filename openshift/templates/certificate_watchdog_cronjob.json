@@ -56,11 +56,11 @@
         "resources": {
           "limits": {
             "memory": "${MEMORY_LIMIT}",
-            "cpu": "0.5"
+            "cpu": "${CPU_LIMIT}"
           },
           "requests": {
-            "memory": "100Mi",
-            "cpu": "0.2"
+            "memory": "${MEMORY_REQUEST}",
+            "cpu": "${CPU_REQUEST}"
           }
         },
         "source": {
@@ -140,11 +140,11 @@
                     "resources": {
                       "limits": {
                         "memory": "${MEMORY_LIMIT}",
-                        "cpu": "0.5"
+                        "cpu": "${CPU_LIMIT}"
                       },
                       "requests": {
-                        "memory": "100Mi",
-                        "cpu": "0.2"
+                        "memory": "${MEMORY_REQUEST}",
+                        "cpu": "${CPU_REQUEST}"
                       }
                     }                    
                   }
@@ -202,6 +202,27 @@
       "description": "Maximum amount of memory the container can use.",
       "value": "512Mi"
     },
+    {
+      "name": "CPU_LIMIT",
+      "displayName": "CPU Limit",
+      "required": true,
+      "description": "Maximum amount of CPU the container can use.",
+      "value": "0.5"
+    },    
+    {
+      "name": "MEMORY_REQUEST",
+      "displayName": "Memory Request",
+      "required": true,
+      "description": "Initial required amount of memory the container.",
+      "value": "100Mi"
+    },
+    {
+      "name": "CPU_REQUEST",
+      "displayName": "CPU Request",
+      "required": true,
+      "description": "Initial required amount of CPU the container.",
+      "value": "0.2"
+    },    
     {
       "name": "SOURCE_REPOSITORY_URL",
       "displayName": "Git Repository URL",
